@@ -1,0 +1,164 @@
+CREATE TABLE paises (
+    id_paises INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_pais VARCHAR(100) UNIQUE,
+    nombre_moneda VARCHAR(50),
+    codigo_moneda VARCHAR(3) -- Cambiado a VARCHAR
+);
+
+CREATE TABLE envios (
+    id_envios INT AUTO_INCREMENT PRIMARY KEY,
+    id_paises INT,
+    Moneda_de_Envio VARCHAR(50),
+    Cantidad_Enviada VARCHAR(50),
+    Cantidad_Recibida VARCHAR(50),
+    Total VARCHAR(50),
+    tipo_cambio VARCHAR(50), -- Nueva columna para almacenar el tipo de cambio
+    FOREIGN KEY (id_paises) REFERENCES paises(id_paises)
+);
+
+
+------------------------------------------------------------
+{"moneda_envio":"AFN","pais_moneda":"KMF","tipo_cambio":6.3839,"monto_recibir":386.22595,"id_paises":"66"}
+
+{"id_paises":"66","Moneda_de_Envio":"SOLES","Cantidad_Enviada":5,"Cantidad_Recibida":35.11,"Total":"aplica el 10%"}
+
+
+SELECT CONCAT(p.nombre_pais, ' - ', p.nombre_moneda) AS id_paises,
+       e.id_envios,
+       e.Moneda_de_Envio,
+       e.Cantidad_Enviada,
+       e.Cantidad_Recibida,
+       e.Total
+FROM paises p
+INNER JOIN envios e ON p.id_paises = e.id_paises;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+INSERT INTO paises (nombre_pais,nombre_moneda, codigo_moneda) VALUES
+('Chipre', 'Euro', 'EUR'),
+('Eritrea', 'Nakfa eritreo', 'ERN'),
+('Liberia', 'Dólar liberiano', 'LRD'),
+('Bermudas', 'Dólar bermudeño', 'BMD'),
+('Ciudad del Vaticano', 'Euro', 'EUR'),
+('Islas Cook', 'Dólar de las Islas Cook', 'CKD'),
+('Somalia', 'Chelín somalí', 'SOS'),
+('Zambia', 'Kwacha zambiano', 'ZMW'),
+('Venezuela', 'Bolívar soberano venezolano', 'VES'),
+('Turkmenistán', 'Manat turkmeno', 'TMT'),
+('Albania', 'Lek albanés', 'ALL'),
+('Croacia', 'Euro', 'EUR'),
+('Reino Unido', 'Libra esterlina británica', 'GBP'),
+('Sudán', 'Libra sudanesa', 'SDG'),
+('Timor Oriental', 'Dólar estadounidense', 'USD'),
+('República del Congo', 'Franco CFA de África Central', 'XAF'),
+('Azerbaiyán', 'Manat azerbaiyano', 'AZN'),
+('Kenia', 'Chelín keniano', 'KES'),
+('Samoa Americana', 'Dólar estadounidense', 'USD'),
+('Costa de Marfil', 'Franco CFA de África Occidental', 'XOF'),
+('Senegal', 'Franco CFA de África Occidental', 'XOF'),
+('Vietnam', 'Dong vietnamita', 'VND'),
+('El Salvador', 'Dólar estadounidense', 'USD'),
+('Afganistán', 'Afgani afgano', 'AFN'),
+('San Martín', 'Euro', 'EUR'),
+('Letonia', 'Euro', 'EUR'),
+('Guatemala', 'Quetzal guatemalteco', 'GTQ'),
+('Kuwait', 'Dinar kuwaití', 'KWD'),
+('Santo Tomé y Príncipe', 'Dobra de Santo Tomé y Príncipe', 'STN'),
+('Kirguistán', 'Som kirguís', 'KGS'),
+('Polonia', 'Złoty polaco', 'PLN'),
+('Guam', 'Dólar estadounidense', 'USD'),
+('Ghana', 'Cedi ghanés', 'GHS'),
+('Lituania', 'Euro', 'EUR'),
+('Armenia', 'Dram armenio', 'AMD'),
+('Jersey', 'Libra esterlina británica', 'GBP'),
+('Granada', 'Dólar del Caribe Oriental', 'XCD'),
+('Tayikistán', 'Somoni tayiko', 'TJS'),
+('Etiopía', 'Birr etíope', 'ETB'),
+('Sahara Occidental', 'Dinar argelino', 'DZD'),
+('Marruecos', 'Dirham marroquí', 'MAD'),
+('Puerto Rico', 'Dólar estadounidense', 'USD'),
+('Isla de Navidad', 'Dólar australiano', 'AUD'),
+('Nueva Zelanda', 'Dólar neozelandés', 'NZD'),
+('Brunéi', 'Dólar de Brunéi', 'BND'),
+('Guayana Francesa', 'Euro', 'EUR'),
+('Niue', 'Dólar neozelandés', 'NZD'),
+('Rumania', 'Leu rumano', 'RON'),
+('Islas Svalbard y Jan Mayen', 'Corona noruega', 'NOK'),
+('Bielorrusia', 'Rublo bielorruso', 'BYN'),
+('Panamá', 'Balboa panameño', 'PAB'),
+('Camerún', 'Franco CFA de África Central', 'XAF'),
+('Chequia', 'Corona checa', 'CZK'),
+('San Bartolomé', 'Euro', 'EUR'),
+('Grecia', 'Euro', 'EUR'),
+('Malí', 'Franco CFA de África Occidental', 'XOF'),
+('Martinica', 'Euro', 'EUR'),
+('Francia', 'Euro', 'EUR'),
+('Pakistán', 'Rupia pakistaní', 'PKR'),
+('Perú', 'Sol peruano', 'PEN'),
+('Barbados', 'Dólar barbadense', 'BBD'),
+('Groenlandia', 'Corona danesa', 'DKK'),
+('San Pedro y Miquelón', 'Euro', 'EUR'),
+('Chad', 'Franco CFA de África Central', 'XAF'),
+('Hungría', 'Florín húngaro', 'HUF'),
+('Comoras', 'Franco comorense', 'KMF'),
+('Bangladés', 'Taka bangladesí', 'BDT'),
+('Tokelau', 'Dólar neozelandés', 'NZD'),
+('Fiyi', 'Dólar fiyiano', 'FJD'),
+('China', 'Yuan chino', 'CNY'),
+('Colombia', 'Peso colombiano', 'COP'),
+('Islas Vírgenes Británicas', 'Dólar estadounidense', 'USD'),
+('Argelia', 'Dinar argelino', 'DZD'),
+('Maldivas', 'Rufiyaa maldiva', 'MVR'),
+('Malasia', 'Ringgit malayo', 'MYR'),
+('Islas Caimán', 'Dólar de Islas Caimán', 'KYD'),
+('España', 'Euro', 'EUR'),
+('Irlanda', 'Euro', 'EUR'),
+('Estonia', 'Euro', 'EUR'),
+('Paraguay', 'Guaraní paraguayo', 'PYG'),
+('Uruguay', 'Peso uruguayo', 'UYU'),
+('Sudáfrica', 'Rand sudafricano', 'ZAR'),
+('Santa Lucía', 'Dólar del Caribe Oriental', 'XCD'),
+('Vanuatu', 'Vatu vanuatuense', 'VUV'),
+('Finlandia', 'Euro', 'EUR'),
+('Suecia', 'Corona sueca', 'SEK'),
+('Territorio Británico del Océano Índico', 'Dólar estadounidense', 'USD'),
+('Líbano', 'Libra libanesa', 'LBP');
+------------------------
+CREATE TABLE paises (
+    id_paises INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_pais VARCHAR(100) UNIQUE,
+    nombre_moneda VARCHAR(50),
+    codigo_moneda VARCHAR(3) -- Cambiado a VARCHAR
+);
+
+CREATE TABLE envios (
+    id_envios INT AUTO_INCREMENT PRIMARY KEY,
+    id_paises INT,
+    FOREIGN KEY (id_paises) REFERENCES paises(id_paises),
+    Moneda_de_Envio VARCHAR(50),
+    Cantidad_Enviada DECIMAL(10,2),
+    Cantidad_Recibida DECIMAL(10,2),
+    Total DECIMAL(10,2)
+);
