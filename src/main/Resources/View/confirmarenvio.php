@@ -11,21 +11,21 @@
     <h1>Confirmación de Envío</h1>
   </header>
   <main>
-    <section class="resumen">
+  <section class="resumen">
       <h2>Resumen del Envío</h2>
       <ul>
-        <li><strong>Remitente:</strong> Nombre del remitente</li>
-        <li><strong>Documento:</strong> Número de documento</li>
-        <li><strong>Celular:</strong> Número de celular</li>
-        <li><strong>Beneficiario:</strong> Nombre del beneficiario</li>
-        <li><strong>País de Destino:</strong> País</li>
-        <li><strong>Monto a Enviar:</strong> $XXX (soles o dólares)</li>
-        <li><strong>Total a Pagar:</strong> $XXX (incluyendo cargos e impuestos)</li>
+        <li><strong>Remitente:</strong> <?php echo isset($_GET["nombre_remitente"]) ? $_GET["nombre_remitente"] : ""; ?></li>
+        <li><strong>Documento:</strong> <?php echo isset($_GET["documento"]) ? $_GET["documento"] : ""; ?></li>
+        <li><strong>Celular:</strong> <?php echo isset($_GET["celular_remitente"]) ? $_GET["celular_remitente"] : ""; ?></li>
+        <li><strong>Beneficiario:</strong> <?php echo isset($_GET["nombre_beneficiario"]) ? $_GET["nombre_beneficiario"] : ""; ?></li>
+        <li><strong>País de Destino:</strong> <?php echo isset($_GET["pais_destino"]) ? $_GET["pais_destino"] : ""; ?></li>
+        <li><strong>Monto a Enviar:</strong> <?php echo isset($_GET["monto_enviar"]) ? $_GET["monto_enviar"] : ""; ?></li>
+        <li><strong>Total a Pagar:</strong> <?php echo isset($_GET["total_pagar"]) ? $_GET["total_pagar"] : ""; ?></li>
       </ul>
     </section>
     <section class="opciones">
-      <button class="confirmar-btn">Confirmar Envío</button>
-      <a href="pagina_anterior.html" class="cancelar-btn">Cancelar</a>
+      <button href="dineroenviado.php" class="confirmar-btn">Confirmar Envío</button>
+      <a href="enviardinero.php" class="cancelar-btn">Cancelar</a>
     </section>
   </main>
 </body>
